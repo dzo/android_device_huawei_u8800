@@ -38,12 +38,14 @@ TARGET_NO_BOOTLOADER := true
 BOARD_USES_QCOM_HARDWARE := true
 TARGET_BOOTLOADER_BOARD_NAME := u8800
 ARCH_ARM_HAVE_TLS_REGISTER := true
+QCOM_TARGET_PRODUCT:=msm7630
+TARGET_USES_OLD_LIBSENSORS_HAL:=true
 
 # Camera
-USE_CAMERA_STUB := true
+USE_CAMERA_STUB := false
 BOARD_CAMERA_USE_GETBUFFERINFO := true
-#BOARD_USE_FROYO_LIBCAMERA := true
-
+BOARD_USE_FROYO_LIBCAMERA := true
+BOARD_USE_CAF_LIBCAMERA := false
 
 # Graphics
 TARGET_LIBAGL_USE_GRALLOC_COPYBITS := true
@@ -54,11 +56,12 @@ BOARD_EGL_CFG := device/huawei/u8800/system/lib/egl/egl.cfg
 
 # Audio
 BOARD_USES_GENERIC_AUDIO := false
+BOARD_USES_QCOM_AUDIO_V2 := true
 #BOARD_PREBUILT_LIBAUDIO := true  \\build libaudio.so from source, fix no boot
-
+BUILD_WITHOUT_PV := false
 
 # kernel
-BOARD_KERNEL_CMDLINE := console=ttyDCC0 androidboot.hardware=u8800 g_android.product_id=0x1038 g_android.serial_number=U8800-Geno
+BOARD_KERNEL_CMDLINE := console=ttyDCC0 androidboot.hardware=u8800 g_android.product_id=0x1038 g_android.serial_number=U8800
 BOARD_KERNEL_BASE := 0x00200000
 BOARD_KERNEL_PAGE_SIZE := 4096
 
@@ -73,10 +76,10 @@ BOARD_USES_QCOM_LIBS := true
 BOARD_USES_QCOM_LIBRPC := true
 BOARD_USES_QCOM_GPS := true
 BOARD_USE_QCOM_PMEM := true
-#BOARD_GPS_LIBRARIES := libloc_api
+BOARD_GPS_LIBRARIES := libloc_api
 
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := u8800
-BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 1240
+BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50001
 
 
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x04200000
@@ -92,18 +95,16 @@ TARGET_PREBUILT_KERNEL := device/huawei/u8800/kernel
 # Wifi related defines
 BOARD_WPA_SUPPLICANT_DRIVER := WEXT
 WPA_SUPPLICANT_VERSION      := VER_0_6_X
-BOARD_WLAN_DEVICE           := bcm4329
-WIFI_DRIVER_MODULE_PATH     := "/system/lib/modules/bcm4329.ko"
-WIFI_DRIVER_FW_STA_PATH     := "/vendor/firmware/fw_bcm4329.bin"
-WIFI_DRIVER_FW_AP_PATH      := "/vendor/firmware/fw_bcm4329_apsta.bin"
-WIFI_DRIVER_MODULE_ARG      := "firmware_path=/vendor/firmware/fw_bcm4329.bin nvram_path=/proc/calibration"
-WIFI_DRIVER_MODULE_NAME     := "bcm4329"
+BOARD_WLAN_DEVICE           := libra
+WIFI_DRIVER_MODULE_PATH     := "/system/lib/modules/libra.ko"
+WIFI_DRIVER_MODULE_NAME     := "libra"
+WIFI_SDIO_IF_DRIVER_MODULE_PATH  := "/system/lib/modules/librasdioif.ko"
+WIFI_SDIO_IF_DRIVER_MODULE_NAME := "librasdioif"
 
 # SDCard
 BOARD_USE_USB_MASS_STORAGE_SWITCH := true
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun
 BOARD_UMS_LUNFILE := "/sys/devices/platform/msm_hsusb/gadget/lun0/file"
-#BOARD_UMS_LUNFILE2 := "/sys/devices/platform/msm_hsusb/gadget/lun2/file"
 
 # Filesystem
 BOARD_DATA_DEVICE := /dev/block/mmcblk0p13

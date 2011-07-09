@@ -1,5 +1,6 @@
+#$(call inherit-product, device/qcom/common/common.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full.mk)
 
 $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 
@@ -13,7 +14,7 @@ PRODUCT_NAME := huawei_u8800
 PRODUCT_DEVICE := u8800
 PRODUCT_MODEL := huawei u8800
 PRODUCT_MANUFACTURER := huawei
-PRODUCT_LOCALES := zh_CN zh_TW en_US
+#PRODUCT_LOCALES := zh_CN zh_TW en_US
 
 TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/kernel
 
@@ -21,6 +22,7 @@ TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/kernel
 #    device/huawei/u8800/gps.conf:/system/etc/gps.conf
 
 PRODUCT_COPY_FILES += \
+    device/huawei/u8800/init.rc:root/init.rc \
     device/huawei/u8800/init.u8800.rc:root/init.u8800.rc \
     device/huawei/u8800/ueventd.u8800.rc:root/ueventd.u8800.rc
 
@@ -49,12 +51,12 @@ PRODUCT_PACKAGES += \
     SpareParts \
     Term \
     librs_jni \
-    gralloc.msm7x30 \
     overlay.default \
     gps.u8800 \
     libOmxCore \
     libOmxVenc \
-    libOmxVdec
+    libOmxVdec \
+    libcamera 
 
 # Firmware
 PRODUCT_COPY_FILES += \
@@ -77,13 +79,18 @@ device/huawei/u8800/system/etc/firmware/wlan/cfg.dat:/system/etc/firmware/wlan/c
 device/huawei/u8800/system/etc/firmware/wlan/hostapd_default.conf:/system/etc/firmware/wlan/hostapd_default.conf \
 device/huawei/u8800/system/etc/firmware/wlan/qcom_cfg.ini:/system/etc/firmware/wlan/qcom_cfg.ini \
 device/huawei/u8800/system/etc/wifi/wpa_supplicant.conf:/system/etc/wifi/wpa_supplicant.conf \
+device/huawei/u8800/wifi/libra.ko:/root/wifi/libra.ko \
+device/huawei/u8800/wifi/librasdioif.ko:/root/wifi/librasdioif.ko \
+device/huawei/u8800/wifi/libra_ftm.ko:/root/wifi/libra_ftm.ko 
 
 # egl
 PRODUCT_COPY_FILES += \
     device/huawei/u8800/system/lib/egl/libEGL_adreno200.so:/system/lib/egl/libEGL_adreno200.so \
+    device/huawei/u8800/system/lib/egl/libGLES_android.so:/system/lib/egl/libGLES_android.so \
     device/huawei/u8800/system/lib/egl/libGLESv1_CM_adreno200.so:/system/lib/egl/libGLESv1_CM_adreno200.so \
     device/huawei/u8800/system/lib/egl/libGLESv2_adreno200.so:/system/lib/egl/libGLESv2_adreno200.so \
     device/huawei/u8800/system/lib/egl/libq3dtools_adreno200.so:/system/lib/egl/libq3dtools_adreno200.so \
+    device/huawei/u8800/system/lib/hw/gralloc.msm7k.so:/system/lib/hw/gralloc.u8800.so \
     device/huawei/u8800/system/lib/libgsl.so:/system/lib/libgsl.so \
 
 
@@ -99,74 +106,15 @@ PRODUCT_COPY_FILES += \
 
 # OMX
 PRODUCT_COPY_FILES += \
-    device/huawei/u8800/system/lib/libOmxEvrcEnc.so:/system/lib/libOmxEvrcEnc.so \
-    device/huawei/u8800/system/lib/libOmxAacDec.so:/system/lib/libOmxAacDec.so \
-    device/huawei/u8800/system/lib/libOmxQcelpDec.so:/system/lib/libOmxQcelpDec.so \
-    device/huawei/u8800/system/lib/libOmxAmrEnc.so:/system/lib/libOmxAmrEnc.so \
-    device/huawei/u8800/system/lib/libOmxAdpcmDec.so:/system/lib/libOmxAdpcmDec.so \
-    device/huawei/u8800/system/lib/libOmxEvrcDec.so:/system/lib/libOmxEvrcDec.so \
-    device/huawei/u8800/system/lib/libOmxAmrDec.so:/system/lib/libOmxAmrDec.so \
-    device/huawei/u8800/system/lib/libOmxAmrwbDec.so:/system/lib/libOmxAmrwbDec.so \
-    device/huawei/u8800/system/lib/libOmxWmaDec.so:/system/lib/libOmxWmaDec.so \
-    device/huawei/u8800/system/lib/libOmxQcelp13Enc.so:/system/lib/libOmxQcelp13Enc.so \
-    device/huawei/u8800/system/lib/libOmxMp3Dec.so:/system/lib/libOmxMp3Dec.so \
-    device/huawei/u8800/system/lib/libOmxAmrRtpDec.so:/system/lib/libOmxAmrRtpDec.so \
-    device/huawei/u8800/system/lib/libOmxAacEnc.so:/system/lib/libOmxAacEnc.so \
-    device/huawei/u8800/system/lib/libmm-adspsvc.so:/system/lib/libmm-adspsvc.so \
-    device/huawei/u8800/system/lib/libomx_aacdec_sharedlibrary.so:/system/lib/libomx_aacdec_sharedlibrary.so \
-    device/huawei/u8800/system/lib/libomx_amrdec_sharedlibrary.so:/system/lib/libomx_amrdec_sharedlibrary.so \
-    device/huawei/u8800/system/lib/libomx_amrenc_sharedlibrary.so:/system/lib/libomx_amrenc_sharedlibrary.so \
-    device/huawei/u8800/system/lib/libomx_avcdec_sharedlibrary.so:/system/lib/libomx_avcdec_sharedlibrary.so \
-    device/huawei/u8800/system/lib/libomx_m4vdec_sharedlibrary.so:/system/lib/libomx_m4vdec_sharedlibrary.so \
-    device/huawei/u8800/system/lib/libomx_mp3dec_sharedlibrary.so:/system/lib/libomx_mp3dec_sharedlibrary.so \
-    device/huawei/u8800/system/lib/libomx_sharedlibrary.so:/system/lib/libomx_sharedlibrary.so
+device/huawei/u8800/system/lib/libmm-adspsvc.so:/system/lib/libmm-adspsvc.so \
+device/huawei/u8800/system/lib/libgemini.so:/system/lib/libgemini.so \
 
 # opencore
-PRODUCT_COPY_FILES += \
-    device/huawei/u8800/system/lib/libopencore_author.so:/system/lib/libopencore_author.so \
-    device/huawei/u8800/system/lib/libopencore_common.so:/system/lib/libopencore_common.so \
-    device/huawei/u8800/system/lib/libopencore_downloadreg.so:/system/lib/libopencore_downloadreg.so \
-    device/huawei/u8800/system/lib/libopencore_download.so:/system/lib/libopencore_download.so \
-    device/huawei/u8800/system/lib/libopencorehw.so:/system/lib/libopencorehw.so \
-    device/huawei/u8800/system/lib/libopencore_mp4localreg.so:/system/lib/libopencore_mp4localreg.so \
-    device/huawei/u8800/system/lib/libopencore_mp4local.so:/system/lib/libopencore_mp4local.so \
-    device/huawei/u8800/system/lib/libopencore_net_support.so:/system/lib/libopencore_net_support.so \
-    device/huawei/u8800/system/lib/libopencore_player.so:/system/lib/libopencore_player.so \
-    device/huawei/u8800/system/lib/libopencore_rtspreg.so:/system/lib/libopencore_rtspreg.so \
-    device/huawei/u8800/system/lib/libopencore_rtsp.so:/system/lib/libopencore_rtsp.so \
-    device/huawei/u8800/system/lib/libOpenVG.so:/system/lib/libOpenVG.so \
 
-# bin MM
-PRODUCT_COPY_FILES += \
-device/huawei/u8800/system/bin/mm-abl-test:/system/bin/mm-abl-test \
-device/huawei/u8800/system/bin/mm-adec-omxaac-test:/system/bin/mm-adec-omxaac-test \
-device/huawei/u8800/system/bin/mm-adec-omxadpcm-test:/system/bin/mm-adec-omxadpcm-test \
-device/huawei/u8800/system/bin/mm-adec-omxamr-test:/system/bin/mm-adec-omxamr-test \
-device/huawei/u8800/system/bin/mm-adec-omxamrwb-test:/system/bin/mm-adec-omxamrwb-test \
-device/huawei/u8800/system/bin/mm-adec-omxevrc-test:/system/bin/mm-adec-omxevrc-test \
-device/huawei/u8800/system/bin/mm-adec-omxmp3-test:/system/bin/mm-adec-omxmp3-test \
-device/huawei/u8800/system/bin/mm-adec-omxvam-test:/system/bin/mm-adec-omxvam-test \
-device/huawei/u8800/system/bin/mm-adec-omxwma-test:/system/bin/mm-adec-omxwma-test \
-device/huawei/u8800/system/bin/mm-adspsvc-test:/system/bin/mm-adspsvc-test \
-device/huawei/u8800/system/bin/mm-aenc-omxaac-test:/system/bin/mm-aenc-omxaac-test \
-device/huawei/u8800/system/bin/mm-aenc-omxamr-test:/system/bin/mm-aenc-omxamr-test \
-device/huawei/u8800/system/bin/mm-aenc-omxevrc-test:/system/bin/mm-aenc-omxevrc-test \
-device/huawei/u8800/system/bin/mm-aenc-omxqcelp13-test:/system/bin/mm-aenc-omxqcelp13-test \
-device/huawei/u8800/system/bin/mm-audio-alsa-test:/system/bin/mm-audio-alsa-test \
-device/huawei/u8800/system/bin/mm-audio-ctrl-test:/system/bin/mm-audio-ctrl-test \
-device/huawei/u8800/system/bin/mm-audio-native-test:/system/bin/mm-audio-native-test \
-device/huawei/u8800/system/bin/mm-audio-voem_if-test:/system/bin/mm-audio-voem_if-test \
-device/huawei/u8800/system/bin/mm-jpeg-dec-test:/system/bin/mm-jpeg-dec-test \
-device/huawei/u8800/system/bin/mm-jpeg-enc-test:/system/bin/mm-jpeg-enc-test \
-device/huawei/u8800/system/bin/mm-omx-devmgr:/system/bin/mm-omx-devmgr \
-device/huawei/u8800/system/bin/mm-qcamera-test:/system/bin/mm-qcamera-test \
-device/huawei/u8800/system/bin/mm-qcamera-testsuite-client:/system/bin/mm-qcamera-testsuite-client \
-device/huawei/u8800/system/bin/mm-venc-omx-test:/system/bin/mm-venc-omx-test \
 
 #ril
 PRODUCT_COPY_FILES += \
     device/huawei/u8800/system/lib/libril-qc-1.so:/system/lib/libril-qc-1.so \
-    device/huawei/u8800/system/lib/libreference-ril.so:/system/lib/libreference-ril.so \
     device/huawei/u8800/system/lib/libril-qcril-hook-oem.so:/system/lib/libril-qcril-hook-oem.so \
     device/huawei/u8800/system/lib/libdiag.so:/system/lib/libdiag.so \
     device/huawei/u8800/system/lib/liboncrpc.so:/system/lib/liboncrpc.so \
@@ -190,13 +138,12 @@ PRODUCT_COPY_FILES += \
     device/huawei/u8800/system/lib/libril.so:/system/lib/libril.so \
     device/huawei/u8800/system/bin/rild:/system/bin/rild \
     device/huawei/u8800/system/lib/libgemini.so:/system/lib/libgemini.so \
-    device/huawei/u8800/system/lib/libicudata.so:/system/lib/libicudata.so \
     device/huawei/u8800/system/lib/libhwrpc.so:/system/lib/libhwrpc.so \
 
 # security
 PRODUCT_COPY_FILES += \
-    device/huawei/u8800/system/etc/security/otacerts.zip:/system/etc/security/otacerts.zip \
-    device/huawei/u8800/system/etc/security/cacerts.bks:/system/etc/security/cacerts.bks
+#    device/huawei/u8800/system/etc/security/otacerts.zip:/system/etc/security/otacerts.zip \
+#    device/huawei/u8800/system/etc/security/cacerts.bks:/system/etc/security/cacerts.bks
 
 # init bin
 PRODUCT_COPY_FILES += \
@@ -226,28 +173,54 @@ PRODUCT_COPY_FILES += \
 # Camera
 PRODUCT_COPY_FILES += \
     device/huawei/u8800/system/lib/liboemcamera.so:/system/lib/liboemcamera.so \
-    device/huawei/u8800/system/lib/libcamera.so:/system/lib/libcamera.so \
     device/huawei/u8800/system/lib/libmmjpeg.so:/system/lib/libmmjpeg.so \
     device/huawei/u8800/system/lib/libmmipl.so:/system/lib/libmmipl.so \
-    device/huawei/u8800/system/lib/libcamera.so:/obj/lib/libcamera.so \
+    device/huawei/u8800/system/lib/liboverlay.so:/system/lib/liboverlay.so \
+    device/huawei/u8800/system/lib/liboverlay.so:/obj/lib/liboverlay.so \
+    device/huawei/u8800/system/lib/hw/overlay.default.so:/system/lib/hw/overlay.default.so
+#    device/huawei/u8800/system/lib/libcamera.so:/system/lib/libcamera.so \
+#    device/huawei/u8800/system/lib/libcamera.so:/obj/lib/libcamera.so \
 
 # audio
 PRODUCT_COPY_FILES += \
-    device/huawei/u8800/system/lib/libaudioalsa.so:/system/lib/libaudioalsa.so \
-    device/huawei/u8800/system/lib/libaudioeq.so:/system/lib/libaudioeq.so \
-    device/huawei/u8800/system/lib/libaudioalsa.so:/obj/lib/libaudioalsa.so \
+#    device/huawei/u8800/system/lib/libaudioalsa.so:/system/lib/libaudioalsa.so \
+#    device/huawei/u8800/system/lib/libaudioeq.so:/system/lib/libaudioeq.so \
+#    device/huawei/u8800/system/lib/libaudioalsa.so:/obj/lib/libaudioalsa.so \
 #    device/huawei/u8800/system/lib/libaudio.so:/system/lib/libaudio.so \
 #    device/huawei/u8800/system/lib/libaudio.so:/obj/lib/libaudio.so \
+#    device/huawei/u8800/system/lib/libaudiopolicy.so:/obj/lib/libaudiopolicy.so \
+#    device/huawei/u8800/system/lib/libaudiopolicy.so:/system/lib/libaudiopolicy.so
+
+#Useful Apps
+PRODUCT_COPY_FILES += \
+    device/huawei/u8800/system/app/LauncherPro.apk:/system/app/LauncherPro.apk \
+    device/huawei/u8800/system/app/TitaniumBackup.apk:/system/app/TitaniumBackup.apk
 
 #system patch
-PRODUCT_COPY_FILES += \
-    device/huawei/u8800/system/app/RootExplorer.apk:/system/app/RootExplorer.apk \
-    device/huawei/u8800/system/app/SystemInfoPro.apk:/system/app/SystemInfoPro.apk \
+#PRODUCT_COPY_FILES += \
+#    device/huawei/u8800/system/app/RootExplorer.apk:/system/app/RootExplorer.apk \
+#    device/huawei/u8800/system/app/SystemInfoPro.apk:/system/app/SystemInfoPro.apk \
 
 # sensors
 PRODUCT_COPY_FILES += \
-    device/huawei/u8800/system/lib/hw/sensors.default.so:/system/lib/hw/sensors.default.so \
-    device/huawei/u8800/system/lib/hw/lights.msm7k.so:/system/lib/hw/lights.msm7k.so \
+    device/huawei/u8800/system/lib/hw/sensors.default.so:/system/lib/hw/sensors.u8800.so \
+    device/huawei/u8800/system/lib/liboem_rapi.so:/system/lib/liboem_rapi.so \
+    device/huawei/u8800/system/bin/modempre:/system/bin/modempre
+#    device/huawei/u8800/system/lib/hw/lights.msm7k.so:/system/lib/hw/lights.u8800.so \
+
+# wifi
+PRODUCT_COPY_FILES += \
+    device/huawei/u8800/system/bin/wpa_supplicant:/system/bin/wpa_supplicant \
+    device/huawei/u8800/system/bin/wpa_cli:/system/bin/wpa_cli \
+    device/huawei/u8800/wifi/libra.ko:/system/lib/modules/libra.ko \
+    device/huawei/u8800/wifi/librasdioif.ko:/system/lib/modules/librasdioif.ko \
+    
+
+#gps
+
+PRODUCT_COPY_FILES += \
+    device/huawei/u8800/system/lib/libcommondefs.so:/system/lib/libcommondefs.so \
+    device/huawei/u8800/system/lib/libcommondefs.so:/obj/lib/libcommondefs.so \
 
 
 PRODUCT_PROPERTY_OVERRIDES := \
@@ -269,8 +242,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=240 \
-    persist.sys.language=zh \
-    persist.sys.country=CN \
+    persist.sys.language=en \
+    persist.sys.country=US \
     persist.sys.timezone=Asia/Shanghai
 
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -279,7 +252,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     hw.secondary_mic=0 \
     ro.config.hw_addsettingsdbex=1 \
     ro.config.hw_gcf_mms=true \
-    ro.config.wifi_chip_is_bcm=true \
+    ro.config.wifi_chip_is_bcm=false \
     ro.config.hwft_PNN_function=true \
     persist.cust.tel.adapt=1 \
     persist.cust.tel.eons=1 \
@@ -319,6 +292,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 
 $(call inherit-product-if-exists, vendor/huawei/u8800/u8800-vendor.mk)
-
+$(call inherit-product, device/common/gps/gps_eu_supl.mk)
 # common msm7x30 configs
-$(call inherit-product, device/htc/msm7x30-common/msm7x30.mk)
+#$(call inherit-product, device/htc/msm7x30-common/msm7x30.mk)
