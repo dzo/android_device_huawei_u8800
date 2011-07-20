@@ -53,10 +53,10 @@ PRODUCT_PACKAGES += \
     librs_jni \
     overlay.default \
     gps.u8800 \
-    libOmxCore \
-    libOmxVenc \
-    libOmxVdec \
     libcamera 
+#    libOmxCore \
+#    libOmxVenc \
+#    libOmxVdec \
 
 # Firmware
 PRODUCT_COPY_FILES += \
@@ -86,12 +86,12 @@ device/huawei/u8800/wifi/libra_ftm.ko:/root/wifi/libra_ftm.ko
 # egl
 PRODUCT_COPY_FILES += \
     device/huawei/u8800/system/lib/egl/libEGL_adreno200.so:/system/lib/egl/libEGL_adreno200.so \
-    device/huawei/u8800/system/lib/egl/libGLES_android.so:/system/lib/egl/libGLES_android.so \
     device/huawei/u8800/system/lib/egl/libGLESv1_CM_adreno200.so:/system/lib/egl/libGLESv1_CM_adreno200.so \
     device/huawei/u8800/system/lib/egl/libGLESv2_adreno200.so:/system/lib/egl/libGLESv2_adreno200.so \
     device/huawei/u8800/system/lib/egl/libq3dtools_adreno200.so:/system/lib/egl/libq3dtools_adreno200.so \
     device/huawei/u8800/system/lib/hw/gralloc.msm7k.so:/system/lib/hw/gralloc.u8800.so \
     device/huawei/u8800/system/lib/libgsl.so:/system/lib/libgsl.so \
+#    device/huawei/u8800/system/lib/egl/libGLES_android.so:/system/lib/egl/libGLES_android.so \
 
 
 # etc
@@ -110,6 +110,48 @@ device/huawei/u8800/system/lib/libmm-adspsvc.so:/system/lib/libmm-adspsvc.so \
 device/huawei/u8800/system/lib/libgemini.so:/system/lib/libgemini.so \
 
 # opencore
+
+# OMX
+PRODUCT_COPY_FILES += \
+#    device/huawei/u8800/system/lib/libOmxEvrcEnc.so:/system/lib/libOmxEvrcEnc.so \
+    device/huawei/u8800/system/lib/libOmxAacDec.so:/system/lib/libOmxAacDec.so \
+    device/huawei/u8800/system/lib/libOmxQcelpDec.so:/system/lib/libOmxQcelpDec.so \
+    device/huawei/u8800/system/lib/libOmxAmrEnc.so:/system/lib/libOmxAmrEnc.so \
+    device/huawei/u8800/system/lib/libOmxAdpcmDec.so:/system/lib/libOmxAdpcmDec.so \
+    device/huawei/u8800/system/lib/libOmxEvrcDec.so:/system/lib/libOmxEvrcDec.so \
+    device/huawei/u8800/system/lib/libOmxAmrDec.so:/system/lib/libOmxAmrDec.so \
+    device/huawei/u8800/system/lib/libOmxAmrwbDec.so:/system/lib/libOmxAmrwbDec.so \
+    device/huawei/u8800/system/lib/libOmxWmaDec.so:/system/lib/libOmxWmaDec.so \
+    device/huawei/u8800/system/lib/libOmxQcelp13Enc.so:/system/lib/libOmxQcelp13Enc.so \
+    device/huawei/u8800/system/lib/libOmxMp3Dec.so:/system/lib/libOmxMp3Dec.so \
+    device/huawei/u8800/system/lib/libOmxAmrRtpDec.so:/system/lib/libOmxAmrRtpDec.so \
+    device/huawei/u8800/system/lib/libOmxAacEnc.so:/system/lib/libOmxAacEnc.so \
+    device/huawei/u8800/system/lib/libmm-adspsvc.so:/system/lib/libmm-adspsvc.so \
+    device/huawei/u8800/system/lib/libomx_aacdec_sharedlibrary.so:/system/lib/libomx_aacdec_sharedlibrary.so \
+    device/huawei/u8800/system/lib/libomx_amrdec_sharedlibrary.so:/system/lib/libomx_amrdec_sharedlibrary.so \
+    device/huawei/u8800/system/lib/libomx_amrenc_sharedlibrary.so:/system/lib/libomx_amrenc_sharedlibrary.so \
+    device/huawei/u8800/system/lib/libomx_avcdec_sharedlibrary.so:/system/lib/libomx_avcdec_sharedlibrary.so \
+    device/huawei/u8800/system/lib/libomx_m4vdec_sharedlibrary.so:/system/lib/libomx_m4vdec_sharedlibrary.so \
+    device/huawei/u8800/system/lib/libomx_mp3dec_sharedlibrary.so:/system/lib/libomx_mp3dec_sharedlibrary.so \
+    device/huawei/u8800/system/lib/libomx_sharedlibrary.so:/system/lib/libomx_sharedlibrary.so \
+#    device/huawei/u8800/system/lib/libOmxCore.so:/system/lib/libOmxCore.so \
+
+# opencore
+PRODUCT_COPY_FILES += \
+#    device/huawei/u8800/system/lib/libopencore_author.so:/system/lib/libopencore_author.so \
+    device/huawei/u8800/system/lib/libopencore_common.so:/system/lib/libopencore_common.so \
+    device/huawei/u8800/system/lib/libopencore_downloadreg.so:/system/lib/libopencore_downloadreg.so \
+    device/huawei/u8800/system/lib/libopencore_download.so:/system/lib/libopencore_download.so \
+    device/huawei/u8800/system/lib/libopencorehw.so:/system/lib/libopencorehw.so \
+    device/huawei/u8800/system/lib/libopencore_mp4localreg.so:/system/lib/libopencore_mp4localreg.so \
+    device/huawei/u8800/system/lib/libopencore_mp4local.so:/system/lib/libopencore_mp4local.so \
+    device/huawei/u8800/system/lib/libopencore_net_support.so:/system/lib/libopencore_net_support.so \
+    device/huawei/u8800/system/lib/libopencore_player.so:/system/lib/libopencore_player.so \
+    device/huawei/u8800/system/lib/libopencore_rtspreg.so:/system/lib/libopencore_rtspreg.so \
+    device/huawei/u8800/system/lib/libopencore_rtsp.so:/system/lib/libopencore_rtsp.so \
+    device/huawei/u8800/system/lib/libOpenVG.so:/system/lib/libOpenVG.so \
+
+
 
 
 #ril
@@ -175,11 +217,11 @@ PRODUCT_COPY_FILES += \
     device/huawei/u8800/system/lib/liboemcamera.so:/system/lib/liboemcamera.so \
     device/huawei/u8800/system/lib/libmmjpeg.so:/system/lib/libmmjpeg.so \
     device/huawei/u8800/system/lib/libmmipl.so:/system/lib/libmmipl.so \
-    device/huawei/u8800/system/lib/liboverlay.so:/system/lib/liboverlay.so \
-    device/huawei/u8800/system/lib/liboverlay.so:/obj/lib/liboverlay.so \
-    device/huawei/u8800/system/lib/hw/overlay.default.so:/system/lib/hw/overlay.default.so
-#    device/huawei/u8800/system/lib/libcamera.so:/system/lib/libcamera.so \
-#    device/huawei/u8800/system/lib/libcamera.so:/obj/lib/libcamera.so \
+    device/huawei/u8800/system/lib/libcamera.so:/system/lib/libcamera.so \
+    device/huawei/u8800/system/lib/libcamera.so:/obj/lib/libcamera.so \
+#    device/huawei/u8800/system/lib/liboverlay.so:/system/lib/liboverlay.so \
+#    device/huawei/u8800/system/lib/liboverlay.so:/obj/lib/liboverlay.so \
+#    device/huawei/u8800/system/lib/hw/overlay.default.so:/system/lib/hw/overlay.default.so \
 
 # audio
 PRODUCT_COPY_FILES += \
