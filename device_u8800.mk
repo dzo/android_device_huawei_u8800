@@ -53,10 +53,10 @@ PRODUCT_PACKAGES += \
     librs_jni \
     overlay.default \
     gps.u8800 \
-    libcamera 
-#    libOmxCore \
+    libcamera \
+    libOmxCore \
+    libOmxVdec \
 #    libOmxVenc \
-#    libOmxVdec \
 
 # Firmware
 PRODUCT_COPY_FILES += \
@@ -90,7 +90,7 @@ PRODUCT_COPY_FILES += \
     device/huawei/u8800/system/lib/egl/libGLESv2_adreno200.so:/system/lib/egl/libGLESv2_adreno200.so \
     device/huawei/u8800/system/lib/egl/libq3dtools_adreno200.so:/system/lib/egl/libq3dtools_adreno200.so \
     device/huawei/u8800/system/lib/libgsl.so:/system/lib/libgsl.so \
-#    device/huawei/u8800/system/lib/hw/gralloc.msm7k.so:/system/lib/hw/gralloc.u8800.so \
+    device/huawei/u8800/system/lib/hw/gralloc.msm7k.so:/system/lib/hw/gralloc.u8800.so \
 #    device/huawei/u8800/system/lib/egl/libGLES_android.so:/system/lib/egl/libGLES_android.so \
 
 
@@ -113,6 +113,7 @@ device/huawei/u8800/system/lib/libgemini.so:/system/lib/libgemini.so \
 
 # OMX
 PRODUCT_COPY_FILES += \
+    device/huawei/u8800/system/lib/libOmxVenc.so:/system/lib/libOmxVenc.so \
 #    device/huawei/u8800/system/lib/libOmxEvrcEnc.so:/system/lib/libOmxEvrcEnc.so \
     device/huawei/u8800/system/lib/libOmxAacDec.so:/system/lib/libOmxAacDec.so \
     device/huawei/u8800/system/lib/libOmxQcelpDec.so:/system/lib/libOmxQcelpDec.so \
