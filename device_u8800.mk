@@ -125,7 +125,7 @@ PRODUCT_COPY_FILES += \
     device/huawei/u8800/system/lib/libwmsts.so:/system/lib/libwmsts.so \
     device/huawei/u8800/system/lib/libpbmlib.so:/system/lib/libpbmlib.so \
     device/huawei/u8800/system/lib/libdss.so:/system/lib/libdss.so \
-    device/huawei/u8800/system/lib/libauth.so:/system/lib/libauth.so
+    device/huawei/u8800/system/lib/libauth.so:/system/lib/libauth.so \
     device/huawei/u8800/system/lib/libhwrpc.so:/system/lib/libhwrpc.so \
 
 
