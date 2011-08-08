@@ -56,6 +56,10 @@ PRODUCT_PACKAGES += \
     libcamera \
     libOmxCore \
     libOmxVdec \
+    Superuser \
+    screenshot \
+    su \
+    Torch \
 #    libOmxVenc \
 
 # Firmware mm
@@ -127,6 +131,7 @@ PRODUCT_COPY_FILES += \
     device/huawei/u8800/system/lib/libdss.so:/system/lib/libdss.so \
     device/huawei/u8800/system/lib/libauth.so:/system/lib/libauth.so \
     device/huawei/u8800/system/lib/libhwrpc.so:/system/lib/libhwrpc.so \
+    device/huawei/u8800/system/lib/libhwrpc.so:/obj/lib/libhwrpc.so \
 
 
 # init bin
@@ -148,11 +153,12 @@ PRODUCT_COPY_FILES += \
     device/huawei/u8800/system/bin/hwvefs:/system/bin/hwvefs \
 
 
-# bluetooth bin
+# bluetooth 
 PRODUCT_COPY_FILES += \
     device/huawei/u8800/system/bin/bluetoothd:/system/bin/bluetoothd \
     device/huawei/u8800/system/bin/btwlancoex:/system/bin/btwlancoex \
     device/huawei/u8800/system/bin/hciattach:/system/bin/hciattach \
+    device/huawei/u8800/system/etc/bluetooth/main.conf:/system/etc/bluetooth/main.conf \
 
 # Camera
 PRODUCT_COPY_FILES += \
@@ -182,6 +188,7 @@ PRODUCT_COPY_FILES += \
     device/huawei/u8800/system/bin/wpa_cli:/system/bin/wpa_cli \
     device/huawei/u8800/wifi/libra.ko:/system/lib/modules/libra.ko \
     device/huawei/u8800/wifi/librasdioif.ko:/system/lib/modules/librasdioif.ko \
+    device/huawei/u8800/wifi/libra.ko:/system/lib/modules/libra_ftm.ko \
     
 #gps
 
