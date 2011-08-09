@@ -93,7 +93,7 @@ shift $(($OPTIND-1))
 # Note that "hci_qcomm_init -e" prints expressions to set the shell variables
 # BTS_DEVICE, BTS_TYPE, BTS_BAUD, and BTS_ADDRESS.
 
-eval $(/system/bin/hci_qcomm_init -e && echo "exit_code_hci_qcomm_init=0" || echo "exit_code_hci_qcomm_init=1")
+eval $(/system/bin/hci_qcomm_init -b 00:a0:c6:f2:51:9d -e && echo "exit_code_hci_qcomm_init=0" || echo "exit_code_hci_qcomm_init=1")
 
 # /* < DTS2010101901100 xuhui 20101021 begin */ 
 case $exit_code_hci_qcomm_init in
