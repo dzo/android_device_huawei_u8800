@@ -149,8 +149,8 @@ PRODUCT_COPY_FILES += \
     device/huawei/u8800/system/bin/load_oemlogo:/system/bin/load_oemlogo \
     device/huawei/u8800/system/bin/oeminfo_test:/system/bin/oeminfo_test \
     device/huawei/u8800/system/bin/kmsgcat:/system/bin/kmsgcat \
-#    device/huawei/u8800/system/bin/port-bridge:/system/bin/port-bridge \
-    device/huawei/u8800/system/bin/hwvefs:/system/bin/hwvefs \
+    device/huawei/u8800/system/bin/port-bridge:/system/bin/port-bridge \
+#    device/huawei/u8800/system/bin/hwvefs:/system/bin/hwvefs \
 
 
 # bluetooth 
@@ -174,7 +174,7 @@ PRODUCT_COPY_FILES += \
 #Useful Apps
 PRODUCT_COPY_FILES += \
     device/huawei/u8800/system/app/LauncherPro.apk:/system/app/LauncherPro.apk \
-    device/huawei/u8800/system/app/TitaniumBackup.apk:/system/app/TitaniumBackup.apk
+#    device/huawei/u8800/system/app/TitaniumBackup.apk:/system/app/TitaniumBackup.apk
 
 # sensors
 PRODUCT_COPY_FILES += \
@@ -238,7 +238,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.media.enc.lprof.duration=30 \
     ro.config.PicMaxSize=5mp \
     ro.config.hw_temperature_warn=true \
-    ro.config.hw_clocksetting=0
+    ro.config.hw_clocksetting=0 \
+    ro.additionalmounts=/HWUserData
 
 # u8800 uses high-density artwork where available
 PRODUCT_LOCALES += hdpi
