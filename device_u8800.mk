@@ -60,6 +60,7 @@ PRODUCT_PACKAGES += \
     screenshot \
     su \
     Torch \
+    strace \
 #    libOmxVenc \
 
 # Firmware mm
@@ -97,7 +98,7 @@ PRODUCT_COPY_FILES += \
 # etc
 PRODUCT_COPY_FILES += \
     device/huawei/u8800/system/etc/init.qcom.bt.sh:/system/etc/init.qcom.bt.sh \
-    device/huawei/u8800/system/etc/init.qcom.bt.sh:/system/etc/init.qcom.fm.sh \
+    device/huawei/u8800/system/etc/init.qcom.fm.sh:/system/etc/init.qcom.fm.sh \
     device/huawei/u8800/system/etc/init.qcom.sdio.sh:/system/etc/init.qcom.sdio.sh \
     device/huawei/u8800/system/etc/init.qcom.wifi.sh:/system/etc/init.qcom.wifi.sh \
     device/huawei/u8800/system/etc/media_profiles.xml:/system/etc/media_profiles.xml \
@@ -149,7 +150,7 @@ PRODUCT_COPY_FILES += \
     device/huawei/u8800/system/bin/load_oemlogo:/system/bin/load_oemlogo \
     device/huawei/u8800/system/bin/oeminfo_test:/system/bin/oeminfo_test \
     device/huawei/u8800/system/bin/kmsgcat:/system/bin/kmsgcat \
-    device/huawei/u8800/system/bin/port-bridge:/system/bin/port-bridge \
+#    device/huawei/u8800/system/bin/port-bridge:/system/bin/port-bridge \
 #    device/huawei/u8800/system/bin/hwvefs:/system/bin/hwvefs \
 
 
