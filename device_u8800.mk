@@ -185,11 +185,11 @@ PRODUCT_COPY_FILES += \
 
 # wifi
 PRODUCT_COPY_FILES += \
-    device/huawei/u8800/system/bin/wpa_supplicant:/system/bin/wpa_supplicant \
-    device/huawei/u8800/system/bin/wpa_cli:/system/bin/wpa_cli \
     device/huawei/u8800/wifi/libra.ko:/system/lib/modules/libra.ko \
     device/huawei/u8800/wifi/librasdioif.ko:/system/lib/modules/librasdioif.ko \
     device/huawei/u8800/wifi/libra.ko:/system/lib/modules/libra_ftm.ko \
+#    device/huawei/u8800/system/bin/wpa_supplicant:/system/bin/wpa_supplicant \
+#    device/huawei/u8800/system/bin/wpa_cli:/system/bin/wpa_cli \
     
 #gps
 
