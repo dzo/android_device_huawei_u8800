@@ -9,24 +9,16 @@ key 8     7
 key 9     8
 key 10    9
 key 11    0
-# begin BU5D02300 modified by liuyongming00163001 20100203 add headSetHook key value
-key 226   HEADSETHOOK       WAKE
-# end BU5D02300 modified by liuyongming00163001 20100203 add headSetHook key value
-#/* < BU5D09842 weixinghai 20100513 begin */
-key 163   MEDIA_NEXT          WAKE
-key 165   MEDIA_PREVIOUS      WAKE
-#/* BU5D09842 weixinghai 20100513 end> */
-
-key 158   BACK              WAKE_DROPPED
-key 230   SOFT_RIGHT        WAKE
-key 60    SOFT_RIGHT        WAKE
+key 158   BACK              
+key 230   SOFT_RIGHT        
+key 60    SOFT_RIGHT        
 key 107   ENDCALL           WAKE_DROPPED
 key 62    ENDCALL           WAKE_DROPPED
-key 229   MENU              WAKE_DROPPED
-key 139   MENU              WAKE_DROPPED
-key 59    MENU              WAKE_DROPPED
-key 127   SEARCH            WAKE_DROPPED
-key 217   SEARCH            WAKE_DROPPED
+key 229   MENU              
+key 139   MENU              
+key 59    MENU              
+key 127   SEARCH            
+key 217   SEARCH            
 key 228   POUND
 key 227   STAR
 key 231   CALL              WAKE_DROPPED
@@ -34,19 +26,14 @@ key 61    CALL              WAKE_DROPPED
 key 232   DPAD_CENTER       WAKE_DROPPED
 key 108   DPAD_DOWN         WAKE_DROPPED
 key 103   DPAD_UP           WAKE_DROPPED
-key 102   HOME              WAKE
+key 102   HOME              
 key 105   DPAD_LEFT         WAKE_DROPPED
 key 106   DPAD_RIGHT        WAKE_DROPPED
-#// < DTS2010080701110 yangmeng 20100902 begin 
 key 115   VOLUME_UP         WAKE
 key 114   VOLUME_DOWN       WAKE
-#// DTS2010080701110 yangmeng 20100902 end> 
 key 116   POWER             WAKE
 key 212   CAMERA
-#/*< DTS2010111701674 lijianzhao 20101117 begin */
-key 216   HW_PTT            WAKE_DROPPED
-key 213   HW_HANDFREE       WAKE_DROPPED
-#/* DTS2010111701674 lijianzhao 20101117 end >*/
+
 key 16    Q
 key 17    W
 key 18    E
@@ -99,4 +86,13 @@ key 12    MINUS
 key 13    EQUALS
 key 215   AT
 
+# On an AT keyboard: ESC, F10
+key 1     BACK              
+key 68    MENU              
 
+key 113 MUTE
+key 163 MEDIA_NEXT
+key 164 MEDIA_PLAY_PAUSE
+key 165 MEDIA_PREVIOUS
+key 226 HEADSETHOOK WAKE
+key 231 CALL WAKE_DROPPED
