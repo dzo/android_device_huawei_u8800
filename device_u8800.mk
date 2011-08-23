@@ -7,8 +7,6 @@ $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 DEVICE_PACKAGE_OVERLAYS := device/huawei/u8800/overlay
 
 
-
-
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_NAME := huawei_u8800
 PRODUCT_DEVICE := u8800
@@ -240,7 +238,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.PicMaxSize=5mp \
     ro.config.hw_temperature_warn=true \
     ro.config.hw_clocksetting=0 \
-    ro.additionalmounts=/HWUserData
+#    ro.additionalmounts=/HWUserData
 
 # u8800 uses high-density artwork where available
 PRODUCT_LOCALES += hdpi
