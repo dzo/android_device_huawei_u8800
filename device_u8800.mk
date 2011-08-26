@@ -194,7 +194,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/huawei/u8800/system/lib/libcommondefs.so:/system/lib/libcommondefs.so \
     device/huawei/u8800/system/lib/libcommondefs.so:/obj/lib/libcommondefs.so \
-    device/huawei/u8800/system/usr/keylayout/qwerty.kl:/system/usr/keylayout/qwerty.kl
+    device/huawei/u8800/system/usr/keylayout/qwerty.kl:/system/usr/keylayout/qwerty.kl \
+    device/huawei/u8800/system/autorun.iso:/system/cdrom/autorun.iso \
 
 PRODUCT_PROPERTY_OVERRIDES := \
     keyguard.no_require_sim=true \
