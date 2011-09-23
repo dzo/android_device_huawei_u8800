@@ -78,22 +78,19 @@
 <MediaSettings>
     <!-- Each camcorder profile defines a set of predefined configuration parameters -->
     <CamcorderProfiles>
-        <!-- DTS2010092601585 yanjunwei begin -->
-        <EncoderProfile quality="high" fileFormat="3gp" duration="60">
-            <Video codec="m4v"
+        <EncoderProfile quality="high" fileFormat="mp4" duration="60">
+            <Video codec="h264"
                    bitRate="6000000"
                    width="1280"
                    height="720"
                    frameRate="30" />
 
-            <Audio codec="amrnb"
-                   bitRate="12200"
+            <Audio codec="aac"
+                   bitRate="96000"
                    sampleRate="8000"
                    channels="1" />
         </EncoderProfile>
-        <!--DTS2010081800137 kf31543 20101015 begin-->
         <EncoderProfile quality="low" fileFormat="3gp" duration="30">
-	<!--DTS2010081800137 kf31543 20101015 end-->
             <Video codec="m4v"
                    bitRate="192000"
                    width="176"
@@ -106,7 +103,6 @@
                    channels="1" />
 
         </EncoderProfile>
-        <!-- DTS2010092601585 yanjunwei end -->
 
         <ImageEncoding quality="90" />
         <ImageEncoding quality="80" />
@@ -126,7 +122,13 @@
          In other words, the applications won't be able to use the codec
          or query the capabilities of the codec at all if it is disabled
     -->
-    <VideoEncoderCap name="h263" enabled="true"
+    <VideoEncoderCap name="h264" enabled="true"
+        minBitRate="64000" maxBitRate="8000000"
+        minFrameWidth="176" maxFrameWidth="1280"
+        minFrameHeight="144" maxFrameHeight="720"
+        minFrameRate="1" maxFrameRate="30" />
+                                    
+   <VideoEncoderCap name="h263" enabled="true"
         minBitRate="192000" maxBitRate="6000000"
         minFrameWidth="176" maxFrameWidth="1280"
         minFrameHeight="144" maxFrameHeight="720"
@@ -143,7 +145,12 @@
         minSampleRate="8000" maxSampleRate="8000"
         minChannels="1" maxChannels="1" />
 
-    <!--
+    <AudioEncoderCap name="aac" enabled="true"
+        minBitRate="8192" maxBitRate="96000"
+        minSampleRate="8000" maxSampleRate="16000"
+        minChannels="1" maxChannels="1" />
+                            
+<!--
         FIXME:
         We do not check decoder capabilities at present
         At present, we only check whether windows media is visible
