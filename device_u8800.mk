@@ -154,10 +154,10 @@ PRODUCT_COPY_FILES += \
 
 # bluetooth 
 PRODUCT_COPY_FILES += \
-    device/huawei/u8800/system/bin/bluetoothd:/system/bin/bluetoothd \
     device/huawei/u8800/system/bin/btwlancoex:/system/bin/btwlancoex \
-    device/huawei/u8800/system/bin/hciattach:/system/bin/hciattach \
     device/huawei/u8800/system/etc/bluetooth/main.conf:/system/etc/bluetooth/main.conf \
+#    device/huawei/u8800/system/bin/bluetoothd:/system/bin/bluetoothd \
+#    device/huawei/u8800/system/bin/hciattach:/system/bin/hciattach \
 
 # Camera
 PRODUCT_COPY_FILES += \
