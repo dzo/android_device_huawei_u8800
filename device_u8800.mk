@@ -173,6 +173,7 @@ PRODUCT_COPY_FILES += \
 #Useful Apps
 PRODUCT_COPY_FILES += \
     device/huawei/u8800/system/app/LauncherPro.apk:/system/app/LauncherPro.apk \
+    device/huawei/u8800/system/app/ESFileExplorer.apk:/system/app/ESFileExplorer.apk \
 #    device/huawei/u8800/system/app/TitaniumBackup.apk:/system/app/TitaniumBackup.apk
 
 # sensors
