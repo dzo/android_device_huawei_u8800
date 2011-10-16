@@ -176,7 +176,8 @@ PRODUCT_COPY_FILES += \
     device/huawei/u8800/system/app/ESFileExplorer.apk:/system/app/ESFileExplorer.apk \
     device/huawei/u8800/system/app/ProjectMenuAct.apk:/system/app/ProjectMenuAct.apk \
     device/huawei/u8800/system/lib/libprojectmenu.so:/system/lib/libprojectmenu.so \
-    device/huawei/u8800/system/lib/libicudata.so:/system/lib/libicudata.so
+    device/huawei/u8800/system/lib/libicudata.so:/system/lib/libicudata.so \
+    device/huawei/u8800/system/app/HiSuite.apk:/system/app/HiSuite.apk \
 #    device/huawei/u8800/system/app/TitaniumBackup.apk:/system/app/TitaniumBackup.apk
 
 # sensors
@@ -243,7 +244,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.PicMaxSize=5mp \
     ro.config.hw_temperature_warn=true \
     ro.config.hw_clocksetting=0 \
-    mot.proximity.delay=150 
+    mot.proximity.delay=150 \
+    ro.rommanager.developerid=dzo
 #    ro.additionalmounts=/HWUserData
 
 # u8800 uses high-density artwork where available
