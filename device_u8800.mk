@@ -59,6 +59,9 @@ PRODUCT_PACKAGES += \
     su \
     Torch \
     strace \
+    ThemeManager \
+    ThemeChooser \
+    
 #    libOmxVenc \
 
 # Firmware mm
@@ -216,7 +219,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     rild.libpath=/system/lib/libril-qc-1.so \
     rild.libargs=-d /dev/smd0 \
     wifi.interface=wlan0 \
-    wifi.supplicant_scan_interval=15 \
+    wifi.supplicant_scan_interval=90 \
     ro.com.android.dataroaming=false
 
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -245,7 +248,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.hw_temperature_warn=true \
     ro.config.hw_clocksetting=0 \
     mot.proximity.delay=150 \
-    ro.rommanager.developerid=dzo
+    ro.rommanager.developerid=dzo \
+    windowsmgr.max_events_per_sec=75
 #    ro.additionalmounts=/HWUserData
 
 # u8800 uses high-density artwork where available
