@@ -123,14 +123,16 @@ BOARD_SYSTEM_DEVICE := /dev/block/mmcblk0p12
 
 
 # recovery
+TARGET_PREBUILT_RECOVERY_KERNEL := device/huawei/u8800/recovery_kernel
+BOARD_CUSTOM_RECOVERY_KEYMAPPING:= ../../device/huawei/u8800/recovery/recovery_ui.c
+BOARD_HAS_JANKY_BACKBUFFER := true
+BOARD_RECOVERY_CHARGEMODE := true
+BOARD_RECOVERY_RMT_STORAGE := true
+TARGET_RECOVERY_INITRC := device/huawei/u8800/recovery.rc
+BOARD_CUSTOM_GRAPHICS := ../../../device/huawei/u8800/recovery/graphics.c
+
 #BOARD_USES_RECOVERY_CHARGEMODE := true
 BOARD_USES_MMCUTILS := true
-BOARD_USES_RECOVERY_CHINESE := true
-ifeq ($(BOARD_USES_RECOVERY_CHINESE),true)
-BOARD_CUSTOM_RECOVERY_KEYMAPPING:= ../../device/huawei/u8800/recovery/recovery_ui_cn.c
-else
-BOARD_CUSTOM_RECOVERY_KEYMAPPING:= ../../device/huawei/u8800/recovery/recovery_ui_en.c
-endif
 
 TARGET_GRALLOC_USES_ASHMEM := false
 TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
