@@ -169,9 +169,11 @@ PRODUCT_COPY_FILES += \
     device/huawei/u8800/system/lib/libmmipl.so:/system/lib/libmmipl.so \
     device/huawei/u8800/system/lib/libcamera.so:/system/lib/libcamera.so \
     device/huawei/u8800/system/lib/libcamera.so:/obj/lib/libcamera.so \
+    device/huawei/u8800/system/lib/hw/overlay.default.so:/system/lib/hw/overlay.default.so \
 #    device/huawei/u8800/system/lib/liboverlay.so:/system/lib/liboverlay.so \
 #    device/huawei/u8800/system/lib/liboverlay.so:/obj/lib/liboverlay.so \
-#    device/huawei/u8800/system/lib/hw/overlay.default.so:/system/lib/hw/overlay.default.so \
+#    device/huawei/u8800/system/lib/libcameraservice.so:/system/lib/libcameraservice.so \
+#    device/huawei/u8800/system/lib/libcameraservice.so:/obj/lib/libcameraservice.so \
 
 #Useful Apps
 PRODUCT_COPY_FILES += \
